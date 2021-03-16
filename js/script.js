@@ -24,5 +24,24 @@ $(function(){
   alert("I tuoi numeri sono:  " + listaN.join("  "));
   // Un alert espone 5 numeri casuali diversi tra loro.
 
+  // Dopo 30 secondi l'utente deve inserire un prompt
+  // alla volta i numeri che ha visto precedentemente.
+  setTimeout(function(){
+    var listaU = [];
+    do{
+      var nUtente = prompt("Inserisci uno per volta i numeri esposti");
+      if(!(isNaN(nUtente)) && !(listaU.includes(nUtente))){
+        listaU.push(nUtente);
+      }
+      else {
+        alert("Numero non valido!");
+      }
+    }
+    while(listaU.length < 5);
+    console.log(listaU);
+  }, 3000);
+  // Dopo 30 secondi l'utente deve inserire un prompt
+  // alla volta i numeri che ha visto precedentemente.
+
 
 });
