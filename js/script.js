@@ -47,13 +47,12 @@ $(function(){
     }
     while(listaU.length < 5);
 
-    console.log("I numeri da indovinare erano: " + listaN.join("  "));
-    console.log("I numeri che hai inserito sono: " + listaU.join("  "));
-    console.log("Hai indovinato: " + nVincenti.length + " numeri");
-    console.log("Numeri vincenti: " + nVincenti.join("  "));
+    $("#numeri-random").append(listaN.join("  "));
+    $("#numeri-utente").append(listaU.join("  "));
+    $("#numeri-validi").append(nVincenti.length + " numeri!");
+    $("#lista-validi").append(nVincenti.join("  "));
 
   }, 3000);
-
   // Dopo 30 secondi l'utente deve inserire un prompt
   // alla volta i numeri che ha visto precedentemente.
 
