@@ -12,6 +12,7 @@ $(function(){
   var listaN = [];
 
   // Un alert espone 5 numeri casuali diversi tra loro.
+
   for(var i = 0; listaN.length < 5; i++){
     nRandom = Math.floor(Math.random() * 100) + 1;;
     if(listaN.includes(nRandom)){
@@ -28,9 +29,16 @@ $(function(){
   // alla volta i numeri che ha visto precedentemente.
   setTimeout(function(){
     var listaU = [];
+    var nVincenti = [];
+
     do{
-      var nUtente = prompt("Inserisci uno per volta i numeri esposti");
-      if(!(isNaN(nUtente)) && !(listaU.includes(nUtente))){
+      var nUtente = parseInt(prompt("Inserisci uno per volta i numeri esposti"));
+
+      if(listaN.includes(nUtente)){
+        listaU.push(nUtente);
+        nVincenti.push(nUtente);
+      }
+      else if(!(isNaN(nUtente)) && !(listaU.includes(nUtente))){
         listaU.push(nUtente);
       }
       else {
@@ -38,10 +46,17 @@ $(function(){
       }
     }
     while(listaU.length < 5);
-    console.log(listaU);
+
+    console.log("I numeri da indovinare erano: " + listaN.join("  "));
+    console.log("I numeri che hai inserito sono: " + listaU.join("  "));
+    console.log("Hai indovinato: " + nVincenti.length + " numeri");
+    console.log("Numeri vincenti: " + nVincenti.join("  "));
+
   }, 3000);
+
   // Dopo 30 secondi l'utente deve inserire un prompt
   // alla volta i numeri che ha visto precedentemente.
+
 
 
 });
